@@ -32,7 +32,9 @@ fun TopBar(
         },
         navigationIcon = {
             IconButton(
-                onClick = {}
+                onClick = {
+                    onOpenDrawer()
+                }
             ) {
                 Icon(
                     imageVector = Icons.Default.Menu,

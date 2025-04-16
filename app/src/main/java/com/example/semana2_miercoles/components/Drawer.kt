@@ -31,11 +31,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.semana2_miercoles.R
 
 @Composable
-fun Drawer(nav:NavController) {
-    Box(
+fun Drawer(nav:NavHostController) {
+   Box(
         modifier = Modifier
             .height(180.dp)
             .width(180.dp)
@@ -47,7 +48,7 @@ fun Drawer(nav:NavController) {
             modifier = Modifier.fillMaxWidth()
                 .size(128.dp)
                 .clip(CircleShape)
-                .border(2.dp, Color.Gray, CircleShape)
+                .border(2.dp, Color.Red, CircleShape)
         )
     }
 
@@ -135,7 +136,6 @@ fun Drawer(nav:NavController) {
         selected = false,
         onClick = {}
     )
-
 
 
 }

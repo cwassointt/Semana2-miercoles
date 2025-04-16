@@ -41,15 +41,21 @@ import androidx.navigation.NavHostController
 import com.example.semana2_miercoles.R
 import com.example.semana2_miercoles.components.TopBar
 import androidx.compose.ui.window.Dialog
+import com.example.semana2_miercoles.components.BottomApp
 
 @Composable
 fun View1(nav:NavHostController) {
+
+
     Scaffold (
         modifier = Modifier.fillMaxSize(),
         topBar = {
             TopBar(
                 onOpenDrawer = {}
             )
+        },
+        bottomBar = {
+            BottomApp(nav)
         }
     ) {
         innerPadding -> Principal(
