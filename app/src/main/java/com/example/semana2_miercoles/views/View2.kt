@@ -23,6 +23,7 @@ import androidx.navigation.NavHostController
 import com.example.semana2_miercoles.components.Drawer
 import com.example.semana2_miercoles.components.NavigationBar
 import com.example.semana2_miercoles.components.TopBar
+import kotlinx.coroutines.launch
 
 @Composable
 fun View2(nav:NavHostController){
@@ -41,7 +42,15 @@ fun View2(nav:NavHostController){
         Scaffold (
             modifier = Modifier.fillMaxSize(),
             topBar = {
-                TopBar()
+                TopBar(
+                    onOpenDrawer = {
+                        scope.launch {
+                            drawerState.apply{
+                                if(isClosed) open() else close()
+                            }
+                        }
+                    }
+                )
             },
             bottomBar = {
                 NavigationBar(nav)
@@ -52,21 +61,6 @@ fun View2(nav:NavHostController){
         }
     }
 
-
-
-    Scaffold (
-        modifier = Modifier.fillMaxSize(),
-        topBar = {
-            TopBar()
-        },
-        bottomBar = {
-            NavigationBar(nav)
-        }
-
-    ){
-        innerPadding -> Vista2(
-            modifier = Modifier.padding(innerPadding), nav)
-    }
 }
 
 @Composable
